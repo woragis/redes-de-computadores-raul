@@ -30,9 +30,12 @@ def main():
         try:
             # Recebe a mensagem do cliente (requisição HTTP)
             message = connectionSocket.recv(1024).decode()
+            print(message)
             
             # Extrai o nome do arquivo da requisição HTTP
             filename = message.split()[1]
+            print('Filename: ', filename[1:])
+            print('message.split(): ', message.split())
             
             # Abre o arquivo solicitado (remove o '/' inicial do caminho)
             f = open(filename[1:])
